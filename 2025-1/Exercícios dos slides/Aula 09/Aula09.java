@@ -16,6 +16,18 @@ public class Aula09 {
         return difference;
     }
 
+    // Escreva uma função em Java que receba um HashSet de inteiros S e um número inteiro n.
+    // Sua função deve retornar o subconjunto de S em que todos os elementos sejam estritamente menores que n.
+    public static Set<Integer> lessThan(Set<Integer> set, int value) {
+        Set<Integer> less = new HashSet<>();
+        for (Integer element : set) {
+            if (element < value) {
+                less.add(element);
+            }
+        }
+        return less;
+    }
+
     // Escreva uma função em Java que receba uma ArrayList de palavras.
     // A função deve retornar um dicionário em que as chaves são as palavras e o valor é o número de ocorrências da palavra na lista.
     public static Map<String,Integer> countOcurrences(ArrayList<String> words) {
