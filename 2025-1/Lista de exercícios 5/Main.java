@@ -1,4 +1,3 @@
-package lista;
 import java.util.*;
 
 // Gabarito da Questão 1
