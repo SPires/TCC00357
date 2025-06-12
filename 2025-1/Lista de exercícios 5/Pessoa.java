@@ -40,36 +40,36 @@ public class Pessoa {
     }
 
     public Tuple<Pessoa,Pessoa> getAvosPaternos(){
-        return new Tuple<>(this.pai.getPai(),this.pai.getMae());
+        return new Tuple<>(pai.pai,pai.mae);
     }
 
     public Tuple<Pessoa,Pessoa> getAvosMaternos(){
-        return new Tuple<>(this.mae.getPai(),this.mae.getMae());
+        return new Tuple<>(mae.pai,mae.mae);
     }
 
     public HashMap<String,Integer> numeroPrimos(){
         HashMap<String,Integer> map = new HashMap<>();
         HashSet<Pessoa> temp = new HashSet<>();
-        temp.addAll(pai.getPai().getFilhos());
-        temp.addAll(pai.getMae().getFilhos());
+        temp.addAll(pai.pai.filhos);
+        temp.addAll(pai.mae.filhos);
         temp.remove(pai);
         int count = 0;
         for (Pessoa p : temp){
-            count += p.getFilhos().size();
+            count += p.filhos.size();
         }
         map.put("Primos paternos",count);
         temp.clear();
-        temp.addAll(mae.getMae().getFilhos());
-        temp.addAll(mae.getPai().getFilhos());
+        temp.addAll(mae.mae.filhos);
+        temp.addAll(mae.pai.filhos);
         temp.remove(mae);
         count = 0;
         for (Pessoa p : temp){
-            count += p.getFilhos().size();
+            count += p.filhos.size();
         }
         map.put("Primos maternos",count);
         return map;
     }
-    
+
     @Override
     public String toString() {
         return nome + " " + idade + "\n" + naturalidade + " " + nacionalidade + "\nFiliação: " + pai.nome + " e " + mae.nome;
